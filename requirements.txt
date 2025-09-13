@@ -1,0 +1,14 @@
+numpy
+pandas
+scipy
+pymc>=5
+arviz
+matplotlib
+streamlit
+scikit-learn
+pytest
+pytest-cov
+ruff
+black
+pre-commit
+statsmodels
