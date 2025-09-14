@@ -1,0 +1,18 @@
+## Reproduce This Scenario
+
+The demo animation and all screenshots were generated with the following fixed configuration so that others can replicate the behavior exactly:
+
+- True conversion rate of A: 0.050
+- True conversion rate of B: 0.055
+- Sample intake per step: 200 observations per arm
+- Prior: Beta(1.0, 1.0) for both arms
+- Decision threshold: P(B > A) ≥ 0.95
+- Random seed: 42
+
+What you should observe as you run the simulator with these settings:
+
+1. The posterior for variant B concentrates to the right of variant A.
+2. The probability P(B > A) increases as more data arrives and eventually exceeds 0.95.
+3. The decision changes from “keep_running” to “ship_B.”
+
+A compact verification script is provided in `examples/reproduce_demo.py`. It streams the experiment with the configuration above and emits a single JSON summary (`examples/last_run.json`) capturing the final step, state, and decision. Reviewers can diff that payload against their own run to confirm results.
